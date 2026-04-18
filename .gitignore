@@ -1,2 +1,2 @@
-output/*
-!output/.gitkeep
+simulation/output/*
+!simulation/output/.gitkeep
