@@ -2,9 +2,9 @@ import random
 import logging
 import csv
 import os
-from deck import Deck
-from action import Action, ActionType
-from player import Player
+from .deck import Deck
+from .action import Action, ActionType
+from .player import Player
 
 class Game:
     def __init__(self, output_dir='.'):

@@ -1,7 +1,7 @@
 import logging
 import os
 import random
-from simulation.src.game import Game
+from src import Game
 
 logging.basicConfig(
     level=logging.INFO,
