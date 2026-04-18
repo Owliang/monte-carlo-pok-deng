@@ -1,6 +1,6 @@
 __pycache__/
 *.pyc
 
-analysis/output/analysis_house_20260418_2339.csv
-simulation/output/game_data_house.csv
-simulation/output/game_data_player.csv
+analysis/output/*.csv
+
+simulation/output/*.csv
