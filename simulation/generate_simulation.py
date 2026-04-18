@@ -16,7 +16,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, 'output')
 
 NUM_WORKERS = 6
-ITERATIONS = 10000000
+ITERATIONS = 600
 PLAYERS = 4
 RANDOM_SEED = 0
 
@@ -41,8 +41,15 @@ def merge_worker_csvs(output_dir, worker_dirs):
 
     for filename in filenames:
         final_path = os.path.join(output_dir, filename)
-        with open(final_path, 'w', newline='') as outfile:
+        file_exists = os.path.exists(final_path)
+        
+        # Open in append mode if file exists, write mode if it doesn't
+        mode = 'a' if file_exists else 'w'
+        
+        with open(final_path, mode, newline='') as outfile:
             writer = None
+            first_file = True
+            
             for worker_dir in worker_dirs:
                 worker_file = os.path.join(worker_dir, filename)
                 if not os.path.exists(worker_file):
@@ -53,9 +60,14 @@ def merge_worker_csvs(output_dir, worker_dirs):
                     header = next(reader, None)
                     if header is None:
                         continue
+                    
                     if writer is None:
                         writer = csv.writer(outfile)
-                        writer.writerow(header)
+                        # Only write header if creating new file or first worker file
+                        if not file_exists or first_file:
+                            writer.writerow(header)
+                        first_file = False
+                    
                     for row in reader:
                         writer.writerow(row)
 
@@ -76,6 +88,8 @@ if __name__ == '__main__':
     seed = random.randint(1000000000, 9999999999)
     seed_base = RANDOM_SEED if RANDOM_SEED != 0 else seed
     logging.info(f"Random Seed: {seed}\n")
+    logging.info(f"Total Iterations: {ITERATIONS}\n")
+    logging.info(f"Number of Workers: {NUM_WORKERS}\n")
 
     iterations_by_worker = split_iterations(ITERATIONS, NUM_WORKERS)
     worker_args = [
