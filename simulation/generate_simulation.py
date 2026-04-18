@@ -12,7 +12,7 @@ logging.basicConfig(
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, 'output')
 
-ITERATIONS = 100_000
+ITERATIONS = 1_000_000
 PLAYERS = 4
 RANDOM_SEED = 0
 
