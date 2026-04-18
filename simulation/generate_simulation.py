@@ -16,7 +16,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, 'output')
 
 NUM_WORKERS = 6
-ITERATIONS = 600
+ITERATIONS = 10000000
 PLAYERS = 4
 RANDOM_SEED = 0
 
