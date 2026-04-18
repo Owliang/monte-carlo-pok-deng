@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+
+analysis/output/*.csv
+
+simulation/output/*.csv

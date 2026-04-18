@@ -1,0 +1,6 @@
+initial_cards,result,deng,point,hit_card,action_type,action_known_cards,action_type_2,action_known_cards_2
+"Qh, 4h",-3,2,4,,RESOLVE_ALL,"3d, 6d",,
+"7s, Kd",0,1,7,Kc,HIT_RESOLVE_ALL,"5c, 3d, 9d, Qc",,
+"6s, 6d",-1,2,2,,RESOLVE_ALL,"Qc, 8h",,
+"Ah, Kd",-2,1,6,5h,RESOLVE_3_CARD,"4c, 4s",HIT_RESOLVE_2_CARD,"4c, 4s, 7s, Td, Ad"
+"As, 9d",-4,1,0,Ks,HIT_RESOLVE_ALL,"7d, Ac",,
