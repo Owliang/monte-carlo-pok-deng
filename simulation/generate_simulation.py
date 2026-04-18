@@ -15,8 +15,8 @@ logging.basicConfig(
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, 'output')
 
-NUM_WORKERS = 4
-ITERATIONS = 5397763
+NUM_WORKERS = 6
+ITERATIONS = 10000000
 PLAYERS = 4
 RANDOM_SEED = 0
 
@@ -73,7 +73,7 @@ def split_iterations(total, parts):
 
 
 if __name__ == '__main__':
-    seed = random.randint(1000, 9999)
+    seed = random.randint(1000000000, 9999999999)
     seed_base = RANDOM_SEED if RANDOM_SEED != 0 else seed
     logging.info(f"Random Seed: {seed}\n")
 
